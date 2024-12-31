@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我们的回忆</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    /* Navigation bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #fb9bb1;
+      color: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar ul li {
+      margin-left: 20px;
+    }
+
+    .navbar ul li a {
+      color: black;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .navbar ul li a:hover {
+      color: rgb(234, 58, 116);
+    }
+
+    /* Main container */
+    .photo-gallery {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 80px 20px 20px;
+      margin-top: 60px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .photo-gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .photo-gallery::-webkit-scrollbar-thumb {
+      background-color: #fb9bb1;
+      border-radius: 10px;
+    }
+
+    .photo-gallery::-webkit-scrollbar-track {
+      background-color: #f8f8f8;
+    }
+
+    .photo-frame {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      position: relative;
+      width: 220px;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: hidden;
+    }
+
+    .rope {
+      width: 100%;
+      height: 5px;
+      background-color: brown;
+      position: absolute;
+      top: -10px;
+      left: 0;
+    }
+
+    .clothespin {
+      width: 10px;
+      height: 30px;
+      background-color: #c19a6b;
+      position: absolute;
+      top: -20px;
+    }
+
+    .clothespin::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 0;
+      width: 10px;
+      height: 3px;
+      background-color: #704214;
+    }
+
+    .image-container {
+      position: relative;
+      transform: rotate(-5deg);
+      margin-top: 20px;
+      width: 100%;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .caption {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>猪猪的生日基地</h1>
+    <ul>
+      <li style="margin-right: 40px;"><a href="birthday_message.html">返回主页</a></li>
+    </ul>
+  </div>
+
+  <!-- Photo Gallery -->
+  <div class="photo-gallery">
+    <!-- Photo Frame 1 -->
+    <div class="photo-frame">
+      <div class="rope"></div>
+      <div class="clothespin" style="left: 45%;"></div>
+      <div class="image-container">
+        <img src="img\img1.png" alt="Photo 1">
+      </div>
+      <p class="caption">一起玩的双人成行~嘻嘻宝宝给我画的爱心❤</p>
+    </div>
+
+    <!-- Photo Frame 2 -->
+    <div class="photo-frame">
+      <div class="rope"></div>
+      <div class="clothespin" style="left: 45%;"></div>
+      <div class="image-container" style="transform: rotate(5deg);">
+        <img src="img\img2.png" alt="Photo 2">
+      </div>
+      <p class="caption">I love you baby<3</p>
+    </div>
+
+    <!-- Photo Frame 3 -->
+    <div class="photo-frame">
+      <div class="rope"></div>
+      <div class="clothespin" style="left: 45%;"></div>
+      <div class="image-container" style="transform: rotate(-5deg);">
+        <img src="img\img3.png" alt="Photo 3">
+      </div>
+      <p class="caption">我是vv bond嘻嘻</p>
+    </div>
+
+    <!-- Add more frames as needed -->
+    <div class="photo-frame">
+      <div class="rope"></div>
+      <div class="clothespin" style="left: 45%;"></div>
+      <div class="image-container" style="transform: rotate(10deg);">
+        <img src="img\img4.png" alt="Photo 4">
+      </div>
+      <p class="caption">宝宝为了爬这个塔爬了快一个小时就是为了看烟花哈哈哈 好可爱</p>
+    </div>
+
+    <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(-5deg);">
+          <img src="img\img5.png" alt="Photo 5">
+        </div>
+        <p class="caption">一起坐摩天轮，你说过你没坐过摩天轮，以后我们一起去坐真正的摩天轮！</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(10deg);">
+          <img src="img\img6.png" alt="Photo 6">
+        </div>
+        <p class="caption">我们一起坐雪景缆车~好美</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(-5deg);">
+          <img src="img\img7.png" alt="Photo 7">
+        </div>
+        <p class="caption">我们一起去搓澡，以后你带我去东北搓澡~</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(10deg);">
+          <img src="img\img8.png" alt="Photo 8">
+        </div>
+        <p class="caption">旋转木马~</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(-5deg);">
+          <img src="img\img9.png" alt="Photo 9">
+        </div>
+        <p class="caption">完结了呜呜呜宝宝 我舍不得</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(10deg);">
+          <img src="img\img10.png" alt="Photo 10">
+        </div>
+        <p class="caption">看哭了 我也想跟你亲亲</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(-5deg);">
+          <img src="img\img11.png" alt="Photo 11">
+        </div>
+        <p class="caption">我们开始玩新的游戏啦~是木筏求生 好难玩哈哈哈 我跟你打招呼你还叫我滚蛋！！坏蛋</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(10deg);">
+          <img src="img\img12.png" alt="Photo 12">
+        </div>
+        <p class="caption">宝宝在游戏里给我弹钢琴嘻嘻 爱你</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(-5deg);">
+          <img src="img\img13.png" alt="Photo 13">
+        </div>
+        <p class="caption">宝宝给我们做的温馨小房间</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(10deg);">
+          <img src="img\img14.png" alt="Photo 14">
+        </div>
+        <p class="caption">我们有钱了 买得起桌子和椅子了</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(-5deg);">
+          <img src="img\img15.png" alt="Photo 15">
+        </div>
+        <p class="caption">和宝宝一起看朝阳 好看的天空</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(10deg);">
+          <img src="img\img16.png" alt="Photo 16">
+        </div>
+        <p class="caption">我们一起用四角内裤飞起来了</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(-5deg);">
+          <img src="img\img17.jpg" alt="Photo 17">
+        </div>
+        <p class="caption">宝宝给我买的卡皮乐高嘻嘻好喜欢</p>
+      </div>
+
+      <!-- <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(10deg);">
+          <img src="img\img18.jpg" alt="Photo 18">
+        </div>
+        <p class="caption">宝宝给我买的好看的小裙子</p>
+      </div> -->
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(-5deg);">
+          <img src="img\img19.jpg" alt="Photo 19">
+        </div>
+        <p class="caption">又是宝宝给我买的桌灯，好像买了都是为了给你拍照片才用的！！</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(10deg);">
+          <img src="img\img20.jpg" alt="Photo 20">
+        </div>
+        <p class="caption">我们一起吃鸡了！</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(-5deg);">
+          <img src="img\img21.jpg" alt="Photo 21">
+        </div>
+        <p class="caption">戳你屁眼</p>
+      </div>      
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(10deg);">
+          <img src="img\img22.jpg" alt="Photo 22">
+        </div>
+        <p class="caption">我们的距离好远呜呜呜</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(-5deg);">
+          <img src="img\img23.jpg" alt="Photo 23">
+        </div>
+        <p class="caption">宝宝给我买了好多好多好多零食嘻嘻好开心</p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="rope"></div>
+        <div class="clothespin" style="left: 45%;"></div>
+        <div class="image-container" style="transform: rotate(10deg);">
+          <img src="img\img24.jpg" alt="Photo 24">
+        </div>
+        <p class="caption">因为没有去公司没有免费饮料，宝宝就给我买了2个霸王茶姬亲亲</p>
+      </div>
+
+  </div>
+</body>
+</html>

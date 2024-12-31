@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Fixed Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #fb9bb1;
+      color: black;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 20px;
+      padding-left: 20px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .navbar ul li {
+      margin-left: 20px;
+    }
+
+    .navbar ul li a {
+      color: black;
+      text-decoration: none;
+      font-size: 14px;
+      padding-right: 20px;
+    }
+
+    .navbar ul li a:hover {
+      color: rgb(234, 58, 116);
+    }
+
+    /* Page-specific styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000; /* Default black background */
+      overflow-x: hidden;
+    }
+
+    .content {
+      text-align: center;
+      margin-top: 120px;
+    }
+
+    .birthday-message {
+      background: #f694ab;
+      padding: 20px;
+      width: 600px;
+      height: 300px;
+      display: inline-block;
+      border-radius: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .button-container {
+      margin-top: 20px;
+      z-index: 20;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #fb9bb1;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      pointer-events: auto;
+      display: inline-block;
+      cursor: pointer; /* Ensures the cursor changes to a pointer on hover */
+    }
+
+    button:hover {
+      background: rgb(255, 60, 42);
+      font-weight: bold;
+    }
+
+    .confetti, .balloons {
+      pointer-events: none; /* Prevent overlapping elements from blocking clicks */
+  }
+
+    .button-container {
+      position: relative;
+      z-index: 10; /* Ensure the button is above decorations */
+    }
+
+    button {
+      display: inline-block;
+      cursor: pointer; /* Ensure the button shows a pointer on hover */
+      z-index: 10; /* Keep it above other elements */
+    }
+
+
+    /* Decorations */
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('./Screenshot\ 2024-12-09\ 200542.png');
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    .balloons {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background: radial-gradient(circle, #ff69b4 0%, #ff1493 100%);
+      border-radius: 50%;
+      animation: float 5s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .balloon:nth-child(1) {
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .balloon:nth-child(2) {
+      left: 40%;
+      animation-delay: 1s;
+    }
+
+    .balloon:nth-child(3) {
+      left: 60%;
+      animation-delay: 2s;
+    }
+
+    .balloon:nth-child(4) {
+      left: 80%;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100%);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-200%);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Decorations -->
+  <div class="confetti"></div>
+  <div class="balloons">
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>猪猪的生日基地</h1>
+    <ul>
+      <li><a href="memories.html">我们的回忆</a></li>
+      <li><a href="talk.html">悄悄话</a></li>
+    </ul>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="birthday-message">
+      <h1>🎉 Happy Birthday! 🎂</h1>
+      <p>宝贝！生日快乐~ 19岁有我陪你过嘻嘻</p>
+      <p>你喜欢手工可是我没有办法在你生日当天送给你，我就想到这个啦嘻嘻</p>
+      <p>我的审美没有很好，就算不好看你也要喜欢！！</p>
+      <p>有没有很惊喜！希望你喜欢这份小惊喜！🎈🎁</p>
+      <p>点点下面还有别的惊喜哦~</p>
+    </div>
+    <div class="button-container">
+      <button id="play-music" style="z-index: 10; cursor: pointer;">点这里！</button>
+    </div>    
+    <audio id="background-music" loop>
+      <source src="bday_song.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    const musicButton = document.getElementById('play-music');
+    const music = document.getElementById('background-music');
+    let isPlaying = false;
+  
+    // Handle music play/pause
+    musicButton.addEventListener('click', () => {
+      if (isPlaying) {
+        music.pause();
+        musicButton.textContent = '点这里！';
+      } else {
+        music.play();
+        musicButton.textContent = '暂停！';
+      }
+      isPlaying = !isPlaying;
+    });
+  
+    // Preserve music state when navigating
+    const links = document.querySelectorAll('.navbar ul li a');
+  
+    links.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default navigation
+        const targetPage = link.getAttribute('href');
+  
+        // Load the target page content via AJAX
+        fetch(targetPage)
+          .then(response => response.text())
+          .then(html => {
+            document.body.innerHTML = html; // Replace the current content
+            document.body.appendChild(music); // Re-append the audio element
+            music.play(); // Resume music if it was playing
+            isPlaying = true;
+          })
+          .catch(error => console.error('Error loading page:', error));
+      });
+    });
+  </script>
+  
+</body>
+</html>
